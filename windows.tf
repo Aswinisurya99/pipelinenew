@@ -1,11 +1,21 @@
-provider "aws" {
-region = "us-east-1"
+variable "ec2_instance_type" {
+        type=map
+        default={
+                new1="t2.micro"
+                new="t2.micro"
+        }
 }
-resource "aws_instance" "ec2_example" {
- ami = "ami-0d43d465e2051057f"
- instance_type = "t2.micro"
- count = 1
- tags ={
-  Name = "windows"
-  } 
+variable "ec2_ami" {
+        type=map
+        default={
+                new1="ami-08e4e35cccc6189f4"
+                new="ami-0d43d465e2051057f"
+        }
+}
+variable "instance_name" {
+        type=map
+        default={
+                new1="linux"
+                new="windows"
+        }
 }
